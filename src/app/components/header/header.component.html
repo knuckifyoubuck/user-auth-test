@@ -1,0 +1,21 @@
+<mat-toolbar *ngIf="isAuthorized && !isAuthRouter; else authorizationPageHeader">
+  <span>Hi, {{ username }}</span>
+  <button mat-icon-button (click)="onSignout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<ng-template #authorizationPageHeader>
+  <mat-toolbar>
+    <span>User Authorization</span>
+    <button
+      *ngIf="mobileBreakpoint$ | async"
+      mat-icon-button
+      class="show-menu-button"
+      aria-label="Show Menu"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+</ng-template>
+

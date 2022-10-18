@@ -1,0 +1,18 @@
+.authentication-form {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 0 20px;
+
+  &__mobile {
+    margin-top: 50px;
+  }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.submit-button-wrapper {
+  display: flex;
+  justify-content: space-around;
+}

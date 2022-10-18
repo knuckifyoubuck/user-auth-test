@@ -1,0 +1,99 @@
+<form class="authentication-form"
+      [class.authentication-form__mobile]="mobileBreakpoint$ | async"
+      [formGroup]="profileForm">
+  <div class="authentication-wrapper">
+    <ng-container class="mat-form-field-wrapper">
+
+    </ng-container>
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="username"
+        placeholder="Max 20 characters"
+      >
+      <mat-error *ngIf="profileFormControls.username.hasError('maxlength')">
+        Username must be less than 20 characters
+      </mat-error>
+      <mat-error *ngIf="profileFormControls.username.hasError('required')">
+        Username <b>required</b>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="email"
+        placeholder="Enter your Email"
+      >
+      <mat-error *ngIf="profileFormControls.email.hasError('pattern')">
+        Email must be valid
+      </mat-error>
+      <mat-error *ngIf="profileFormControls.email.hasError('required')">
+        Email <b>required</b>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Age</mat-label>
+      <input
+        type="number"
+        matInput
+        formControlName="age"
+        placeholder="Enter your age"
+      >
+      <mat-error *ngIf="profileFormControls.age.hasError('min') || profileFormControls.age.hasError('max')">
+        Age must be between 1 and 99
+      </mat-error>
+      <mat-error *ngIf="profileFormControls.age.hasError('required')">
+        Age <b>required</b>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Country</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="country"
+        placeholder="Max 20 characters"
+      >
+      <mat-error *ngIf="profileFormControls.country.hasError('maxlength')">
+        Country must be less than 20 characters
+      </mat-error>
+      <mat-error *ngIf="profileFormControls.country.hasError('required')">
+        Country <b>required</b>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="phone"
+        placeholder="Enter you phone"
+      >
+      <mat-error *ngIf="profileFormControls.phone.hasError('pattern')">
+        Phone number length must be less than 15
+      </mat-error>
+      <mat-error *ngIf="profileFormControls.phone.hasError('required')">
+        Phone <b>required</b>
+      </mat-error>
+    </mat-form-field>
+    <div class="submit-button-wrapper">
+      <button
+        [disabled]="!profileForm.valid"
+        class="submit-button"
+        mat-raised-button
+        color="primary"
+        (click)="onSubmit()">Submit</button>
+      <button
+        *ngIf="isAuthorized"
+        class="return-to-profile-button"
+        mat-raised-button
+        color="accent"
+        (click)="onReturnToProfile()"
+      >Return to Profile</button>
+    </div>
+  </div>
+</form>

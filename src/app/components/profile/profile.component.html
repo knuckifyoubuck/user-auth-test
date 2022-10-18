@@ -1,0 +1,11 @@
+<div class="profile-info-wrapper"
+     [class.profile-info-wrapper__mobile]="mobileBreakpoint$ | async"
+>
+  <h1 class="profile-info-header">Profile Info</h1>
+  <span>Username: {{profileData.username}}</span>
+  <span>Email: {{profileData.email}}</span>
+  <span>Age: {{profileData.age}}</span>
+  <span>Country: {{profileData.country}}</span>
+  <span>Phone: {{profileData.phone}}</span>
+  <button class="update-button" mat-raised-button (click)="onUpdate()">Update Profile</button>
+</div>

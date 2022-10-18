@@ -1,0 +1,19 @@
+.profile-info-wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.profile-info-header {
+  align-self: center;
+}
+
+span {
+  font-size: 1.25em;
+}
+
+.update-button {
+  width: auto;
+  align-self: center;
+}
